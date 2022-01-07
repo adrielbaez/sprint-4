@@ -10,13 +10,18 @@ const readForm = (e) => {
   const apellidoValue = apellido.value;
   const emailValue = email.value;
   const passwordValue = password.value;
-  console.log(nombreValue, apellidoValue, emailValue, passwordValue);
   const user = {
     nombre: nombreValue,
     apellido: apellidoValue,
     email: emailValue,
     password: passwordValue,
   };
+
+  //valida el formulario
+  if (Object.values(user).some((valor) => valor === "")) {
+    alert("Todos los campos son obligatorios");
+  }
+  console.log(user);
 };
 
 btnLogin.addEventListener("click", readForm);
